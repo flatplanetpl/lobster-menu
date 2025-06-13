@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lobster Menu - Modern</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .menu-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 80px;
+            max-width: 1400px;
+            width: 100%;
+            box-shadow: 0 30px 100px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .menu-container::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,107,107,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .header {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .logo {
+            width: 180px;
+            height: auto;
+            margin-bottom: 20px;
+            filter: brightness(0) saturate(100%);
+        }
+        
+        .pub-info {
+            font-size: 14px;
+            color: #666;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 72px;
+            font-weight: 700;
+            color: #1a1a1a;
+            letter-spacing: -2px;
+        }
+        
+        .menu-content {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+        
+        .section {
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #ff6b6b;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, #ff6b6b, transparent);
+        }
+        
+        .vege .section-title {
+            color: #4ecdc4;
+        }
+        
+        .vege .section-title::after {
+            background: linear-gradient(to right, #4ecdc4, transparent);
+        }
+        
+        .drinks .section-title {
+            color: #45b7d1;
+        }
+        
+        .drinks .section-title::after {
+            background: linear-gradient(to right, #45b7d1, transparent);
+        }
+        
+        .menu-item {
+            margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-item:hover {
+            border-left-color: #ff6b6b;
+            padding-left: 30px;
+        }
+        
+        .vege .menu-item:hover {
+            border-left-color: #4ecdc4;
+        }
+        
+        .drinks .menu-item:hover {
+            border-left-color: #45b7d1;
+        }
+        
+        .item-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 5px;
+        }
+        
+        .item-desc {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .image-section {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .sandwich-image {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.1));
+            transform: rotate(-5deg);
+            transition: transform 0.3s ease;
+        }
+        
+        .sandwich-image:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+        
+        .accent-circle {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .menu-container {
+                box-shadow: none;
+                backdrop-filter: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <div class="header">
+            <img src="lobster-logo.png" alt="Lobster" class="logo">
+            <div class="pub-info">Pub na Zwycięskiej 14ccb • 23 krany: piwo, wino, kombucha</div>
+            <h1>Menu</h1>
+        </div>
+        
+        <div class="menu-content">
+            <div class="section">
+                <h2 class="section-title">Kanapki & Burgery</h2>
+                <div class="menu-item">
+                    <div class="item-name">Kanapka ze Stekiem</div>
+                    <div class="item-desc">Grillowany stek wołowy, rukola, pomidory, cebula karmelizowana, sos chimichurri</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Burger z Wędzonym Żeberkiem</div>
+                    <div class="item-desc">Rozwłóknione żeberko BBQ, colesław, pikle, sos miodowo-musztardowy</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Kanapka ze Szarpaną Wieprzowiną</div>
+                    <div class="item-desc">Pulled pork, kapusta kiszona, ser cheddar, sos BBQ, świeża kolendra</div>
+                </div>
+            </div>
+            
+            <div class="section vege">
+                <h2 class="section-title">Vege</h2>
+                <div class="menu-item">
+                    <div class="item-name">Burger Beyond</div>
+                    <div class="item-desc">Roślinny kotlet Beyond Meat, sałata, pomidor, czerwona cebula, wegański majonez</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Kanapka z Shiitake</div>
+                    <div class="item-desc">Grillowane grzyby shiitake, hummus, szpinak, papryka pieczona, sos tahini</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Frytki</div>
+                    <div class="item-desc">Chrupiące frytki z batata i ziemniaka, podawane z trzema sosami do wyboru</div>
+                </div>
+            </div>
+            
+            <div class="section drinks">
+                <h2 class="section-title">Napoje</h2>
+                <div class="menu-item">
+                    <div class="item-name">Kombucha Calamansi</div>
+                    <div class="item-desc">Fermentowany napój probiotyczny o orzeźwiającym smaku cytrusowym</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Kombucha Mango</div>
+                    <div class="item-desc">Naturalna kombucha z dodatkiem świeżego mango i imbiru</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Piwo Bezalkoholowe</div>
+                    <div class="item-desc">Rzemieślnicze piwo 0% z lokalnego browaru</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="image-section">
+            <div class="accent-circle"></div>
+            <img src="tower-sandwich.png" alt="Tower Sandwich" class="sandwich-image">
+        </div>
+    </div>
+</body>
+</html>

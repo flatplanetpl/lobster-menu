@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lobster Menu - Sacred Style</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Crimson+Text:wght@400;600&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 40px;
+            background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1e 100%);
+            font-family: 'Crimson Text', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(212,175,55,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(212,175,55,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .menu-scroll {
+            background: #f4f1e8;
+            max-width: 1100px;
+            width: 100%;
+            padding: 80px 100px;
+            position: relative;
+            box-shadow: 0 30px 100px rgba(0,0,0,0.8);
+            border: 20px solid transparent;
+            border-image: linear-gradient(45deg, #d4af37, #f4e4c1, #d4af37) 1;
+        }
+        
+        .menu-scroll::before,
+        .menu-scroll::after {
+            content: "✠";
+            position: absolute;
+            font-size: 40px;
+            color: #d4af37;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        
+        .menu-scroll::before {
+            top: 30px;
+            left: 40px;
+        }
+        
+        .menu-scroll::after {
+            bottom: 30px;
+            right: 40px;
+        }
+        
+        .illuminated-border {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 2px solid #d4af37;
+            pointer-events: none;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .logo {
+            width: 150px;
+            filter: sepia(1) saturate(2) hue-rotate(30deg) brightness(0.8);
+            margin-bottom: 20px;
+        }
+        
+        .pub-info {
+            font-size: 16px;
+            color: #8b7355;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        .latin-motto {
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            color: #8b7355;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 64px;
+            color: #1a1a2e;
+            letter-spacing: 8px;
+            margin: 20px 0;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        h1::first-letter {
+            font-size: 90px;
+            color: #d4af37;
+            text-shadow: 2px 2px 8px rgba(212,175,55,0.5);
+            float: left;
+            line-height: 80px;
+            padding-right: 8px;
+            margin-top: -10px;
+        }
+        
+        .divine-separator {
+            height: 30px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><text x="50" y="15" text-anchor="middle" fill="%23d4af37" font-size="20">† † †</text></svg>') center no-repeat;
+            margin: 40px 0;
+            opacity: 0.6;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 28px;
+            color: #8b0000;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            letter-spacing: 4px;
+        }
+        
+        .section-title::before,
+        .section-title::after {
+            content: "❦";
+            position: absolute;
+            color: #d4af37;
+            font-size: 24px;
+        }
+        
+        .section-title::before {
+            left: -40px;
+        }
+        
+        .section-title::after {
+            right: -40px;
+        }
+        
+        .vege .section-title {
+            color: #2d5016;
+        }
+        
+        .drinks .section-title {
+            color: #1e3a5f;
+        }
+        
+        .menu-item {
+            margin: 30px 0;
+            padding: 20px;
+            position: relative;
+            border-left: 3px solid #d4af37;
+            background: linear-gradient(90deg, rgba(212,175,55,0.05) 0%, transparent 100%);
+        }
+        
+        .menu-item::before {
+            content: "◆";
+            position: absolute;
+            left: -10px;
+            top: 25px;
+            color: #d4af37;
+            font-size: 16px;
+            background: #f4f1e8;
+            padding: 0 5px;
+        }
+        
+        .item-name {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+        
+        .item-name::first-letter {
+            color: #8b0000;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        
+        .item-desc {
+            font-size: 18px;
+            color: #5a5a5a;
+            line-height: 1.6;
+            font-style: italic;
+        }
+        
+        .manuscript-decoration {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            opacity: 0.1;
+        }
+        
+        .manuscript-decoration.top-left {
+            top: 60px;
+            left: 60px;
+            background: radial-gradient(circle, #d4af37 20%, transparent 20%);
+            background-size: 20px 20px;
+        }
+        
+        .manuscript-decoration.bottom-right {
+            bottom: 60px;
+            right: 60px;
+            background: radial-gradient(circle, #d4af37 20%, transparent 20%);
+            background-size: 20px 20px;
+        }
+        
+        .sandwich-container {
+            text-align: center;
+            margin-top: 60px;
+            position: relative;
+        }
+        
+        .sandwich-frame {
+            display: inline-block;
+            padding: 20px;
+            border: 3px solid #d4af37;
+            border-radius: 50% 50% 0 0;
+            background: rgba(212,175,55,0.05);
+            position: relative;
+        }
+        
+        .sandwich-frame::before {
+            content: "Panis Quotidianus";
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            color: #8b7355;
+            letter-spacing: 2px;
+        }
+        
+        .sandwich-image {
+            width: 200px;
+            height: auto;
+            filter: sepia(0.2) brightness(0.9);
+            display: block;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .menu-scroll {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-scroll">
+        <div class="illuminated-border"></div>
+        <div class="manuscript-decoration top-left"></div>
+        <div class="manuscript-decoration bottom-right"></div>
+        
+        <div class="header">
+            <img src="lobster-logo.png" alt="Lobster" class="logo">
+            <div class="latin-motto">In Vino Veritas • In Cervisiae Felicitas</div>
+            <div class="pub-info">Pub na Zwycięskiej XIVC̄C̄B • XXIII Krany</div>
+            <h1>Menu</h1>
+        </div>
+        
+        <div class="divine-separator"></div>
+        
+        <div class="section">
+            <h2 class="section-title">Kanapki & Burgery</h2>
+            <div class="menu-item">
+                <div class="item-name">Kanapka ze Stekiem</div>
+                <div class="item-desc">Grillowany stek wołowy, rukola, pomidory, cebula karmelizowana, sos chimichurri</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-name">Burger z Wędzonym Żeberkiem</div>
+                <div class="item-desc">Rozwłóknione żeberko BBQ, colesław, pikle, sos miodowo-musztardowy</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-name">Kanapka ze Szarpaną Wieprzowiną</div>
+                <div class="item-desc">Pulled pork, kapusta kiszona, ser cheddar, sos BBQ, świeża kolendra</div>
+            </div>
+        </div>
+        
+        <div class="divine-separator"></div>
+        
+        <div class="section vege">
+            <h2 class="section-title">Vege</h2>
+            <div class="menu-item">
+                <div class="item-name">Burger Beyond</div>
+                <div class="item-desc">Roślinny kotlet Beyond Meat, sałata, pomidor, czerwona cebula, wegański majonez</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-name">Kanapka z Shiitake</div>
+                <div class="item-desc">Grillowane grzyby shiitake, hummus, szpinak, papryka pieczona, sos tahini</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-name">Frytki</div>
+                <div class="item-desc">Chrupiące frytki z batata i ziemniaka, podawane z trzema sosami do wyboru</div>
+            </div>
+        </div>
+        
+        <div class="divine-separator"></div>
+        
+        <div class="section drinks">
+            <h2 class="section-title">Napoje</h2>
+            <div class="menu-item">
+                <div class="item-name">Kombucha Calamansi</div>
+                <div class="item-desc">Fermentowany napój probiotyczny o orzeźwiającym smaku cytrusowym</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-name">Kombucha Mango</div>
+                <div class="item-desc">Naturalna kombucha z dodatkiem świeżego mango i imbiru</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-name">Piwo Bezalkoholowe</div>
+                <div class="item-desc">Rzemieślnicze piwo 0% z lokalnego browaru</div>
+            </div>
+        </div>
+        
+        <div class="sandwich-container">
+            <div class="sandwich-frame">
+                <img src="tower-sandwich.png" alt="Tower Sandwich" class="sandwich-image">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

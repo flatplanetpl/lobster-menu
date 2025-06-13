@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lobster Menu - American BBQ Style</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Barlow+Condensed:wght@400;700&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 40px;
+            background-color: #2a1810;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(0,0,0,.1) 35px, rgba(0,0,0,.1) 70px),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect width="100" height="100" fill="%23301a0f"/></svg>');
+            font-family: 'Barlow Condensed', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .menu-board {
+            background-color: #1a0f08;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(139,69,19,0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139,69,19,0.2) 0%, transparent 50%);
+            border: 15px solid #8b4513;
+            border-radius: 10px;
+            box-shadow: 
+                inset 0 0 50px rgba(0,0,0,0.5),
+                0 20px 60px rgba(0,0,0,0.8);
+            padding: 60px;
+            max-width: 1200px;
+            width: 100%;
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 60px;
+        }
+        
+        .menu-board::before,
+        .menu-board::after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle, #8b4513 30%, transparent 31%);
+            background-size: 10px 10px;
+        }
+        
+        .menu-board::before {
+            top: 20px;
+            left: 20px;
+        }
+        
+        .menu-board::after {
+            bottom: 20px;
+            right: 20px;
+        }
+        
+        .main-content {
+            position: relative;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .logo {
+            width: 200px;
+            filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(15deg);
+            margin-bottom: 20px;
+        }
+        
+        .pub-info {
+            font-size: 18px;
+            color: #d4a574;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        h1 {
+            font-family: 'Alfa Slab One', cursive;
+            font-size: 90px;
+            color: #ff6347;
+            text-shadow: 
+                3px 3px 0px #8b0000,
+                6px 6px 0px #5a0000,
+                9px 9px 15px rgba(0,0,0,0.8);
+            letter-spacing: 5px;
+            margin: 0;
+            transform: perspective(500px) rotateY(-5deg);
+        }
+        
+        .stars {
+            color: #ffd700;
+            font-size: 30px;
+            letter-spacing: 10px;
+            margin: 20px 0;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+            position: relative;
+            padding: 20px;
+            background: rgba(139,69,19,0.1);
+            border-radius: 10px;
+            border: 2px dashed #8b4513;
+        }
+        
+        .section-header {
+            background: #8b0000;
+            color: #fff;
+            padding: 15px 30px;
+            margin: -40px auto 30px;
+            display: inline-block;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%) rotate(-2deg);
+            font-family: 'Alfa Slab One', cursive;
+            font-size: 32px;
+            text-transform: uppercase;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            border: 3px solid #ffd700;
+        }
+        
+        .vege .section-header {
+            background: #2d5016;
+            transform: translateX(-50%) rotate(2deg);
+        }
+        
+        .drinks .section-header {
+            background: #1e3a5f;
+            transform: translateX(-50%) rotate(-1deg);
+        }
+        
+        .menu-item {
+            margin: 25px 0;
+            padding: 20px;
+            background: rgba(0,0,0,0.3);
+            border-left: 5px solid #ff6347;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-item:hover {
+            transform: translateX(10px);
+            box-shadow: -5px 5px 15px rgba(0,0,0,0.5);
+        }
+        
+        .menu-item::before {
+            content: "★";
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ffd700;
+            font-size: 24px;
+        }
+        
+        .item-name {
+            font-family: 'Alfa Slab One', cursive;
+            font-size: 26px;
+            color: #ffd700;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+        
+        .item-desc {
+            font-size: 18px;
+            color: #d4a574;
+            line-height: 1.4;
+            font-weight: 400;
+        }
+        
+        .side-panel {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .sandwich-wrapper {
+            position: relative;
+            padding: 20px;
+            background: #8b0000;
+            border-radius: 50%;
+            border: 5px solid #ffd700;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        
+        .sandwich-image {
+            width: 250px;
+            height: auto;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.8));
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .bbq-badge {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            background: #ffd700;
+            color: #8b0000;
+            padding: 10px 20px;
+            font-family: 'Alfa Slab One', cursive;
+            font-size: 18px;
+            transform: rotate(15deg);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            border: 3px solid #8b0000;
+        }
+        
+        .grill-marks {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 100px;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 10px,
+                rgba(139,69,19,0.3) 10px,
+                rgba(139,69,19,0.3) 15px
+            );
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-board">
+        <div class="main-content">
+            <div class="header">
+                <img src="lobster-logo.png" alt="Lobster" class="logo">
+                <div class="pub-info">Pub na Zwycięskiej 14ccb • 23 krany</div>
+                <div class="stars">★ ★ ★</div>
+                <h1>MENU</h1>
+                <div class="stars">★ ★ ★</div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-header">Kanapki & Burgery</h2>
+                <div class="menu-item">
+                    <div class="item-name">Kanapka ze Stekiem</div>
+                    <div class="item-desc">Grillowany stek wołowy, rukola, pomidory, cebula karmelizowana, sos chimichurri</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Burger z Wędzonym Żeberkiem</div>
+                    <div class="item-desc">Rozwłóknione żeberko BBQ, colesław, pikle, sos miodowo-musztardowy</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Kanapka ze Szarpaną Wieprzowiną</div>
+                    <div class="item-desc">Pulled pork, kapusta kiszona, ser cheddar, sos BBQ, świeża kolendra</div>
+                </div>
+            </div>
+            
+            <div class="section vege">
+                <h2 class="section-header">Vege</h2>
+                <div class="menu-item">
+                    <div class="item-name">Burger Beyond</div>
+                    <div class="item-desc">Roślinny kotlet Beyond Meat, sałata, pomidor, czerwona cebula, wegański majonez</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Kanapka z Shiitake</div>
+                    <div class="item-desc">Grillowane grzyby shiitake, hummus, szpinak, papryka pieczona, sos tahini</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Frytki</div>
+                    <div class="item-desc">Chrupiące frytki z batata i ziemniaka, podawane z trzema sosami do wyboru</div>
+                </div>
+            </div>
+            
+            <div class="section drinks">
+                <h2 class="section-header">Napoje</h2>
+                <div class="menu-item">
+                    <div class="item-name">Kombucha Calamansi</div>
+                    <div class="item-desc">Fermentowany napój probiotyczny o orzeźwiającym smaku cytrusowym</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Kombucha Mango</div>
+                    <div class="item-desc">Naturalna kombucha z dodatkiem świeżego mango i imbiru</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Piwo Bezalkoholowe</div>
+                    <div class="item-desc">Rzemieślnicze piwo 0% z lokalnego browaru</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="side-panel">
+            <div class="sandwich-wrapper">
+                <div class="bbq-badge">BBQ</div>
+                <img src="tower-sandwich.png" alt="Tower Sandwich" class="sandwich-image">
+            </div>
+            <div class="grill-marks"></div>
+        </div>
+    </div>
+</body>
+</html>

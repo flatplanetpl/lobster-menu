@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Food Truck</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 40px;
+            background-color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .menu-board {
+            background-color: #f8f8f8;
+            color: #2c2c2c;
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            max-width: 1200px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            gap: 40px;
+        }
+        
+        .menu-content {
+            flex: 1;
+            position: relative;
+        }
+        
+        .sandwich-image {
+            width: 300px;
+            align-self: center;
+            opacity: 0.9;
+            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.5));
+        }
+        
+        .menu-board::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        h1 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 96px;
+            text-align: center;
+            margin: 0 0 50px 0;
+            color: #DAA520;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            letter-spacing: 3px;
+        }
+        
+        .decorative-line {
+            height: 3px;
+            background: linear-gradient(to right, transparent, #ff6b6b, transparent);
+            margin: 40px 0;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .section-icon {
+            font-size: 40px;
+            margin-right: 20px;
+        }
+        
+        h2 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 56px;
+            color: #2c2c2c;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+        
+        .vege h2 {
+            color: #4ecdc4;
+        }
+        
+        .drinks h2 {
+            color: #45b7d1;
+        }
+        
+        .menu-item {
+            margin: 35px 0;
+            padding-left: 60px;
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+        
+        .menu-item-content {
+            flex: 1;
+        }
+        
+        .menu-item::before {
+            content: "▸";
+            position: absolute;
+            left: 30px;
+            color: #ff6b6b;
+            font-size: 24px;
+            top: 5px;
+        }
+        
+        .menu-item-name {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .menu-item-desc {
+            font-size: 22px;
+            color: #666666;
+            line-height: 1.4;
+            font-weight: 400;
+        }
+        
+        .price {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 42px;
+            color: #DAA520;
+            font-weight: 700;
+            margin-left: 30px;
+            min-width: 100px;
+            text-align: right;
+        }
+        
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            max-width: 250px;
+            height: auto;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1)) brightness(0);
+        }
+        
+        .pub-info {
+            text-align: center;
+            font-size: 26px;
+            color: #DAA520;
+            margin-bottom: 30px;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+        
+        .corner-decoration {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 4px solid #ff6b6b;
+            opacity: 0.2;
+        }
+        
+        .corner-decoration.top-left {
+            top: 20px;
+            left: 20px;
+            border-right: none;
+            border-bottom: none;
+        }
+        
+        .corner-decoration.top-right {
+            top: 20px;
+            right: 20px;
+            border-left: none;
+            border-bottom: none;
+        }
+        
+        .corner-decoration.bottom-left {
+            bottom: 20px;
+            left: 20px;
+            border-right: none;
+            border-top: none;
+        }
+        
+        .corner-decoration.bottom-right {
+            bottom: 20px;
+            right: 20px;
+            border-left: none;
+            border-top: none;
+        }
+        
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+            }
+            
+            .menu-board {
+                box-shadow: none;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-board">
+        <div class="menu-content">
+            <div class="corner-decoration top-left"></div>
+            <div class="corner-decoration top-right"></div>
+            <div class="corner-decoration bottom-left"></div>
+            <div class="corner-decoration bottom-right"></div>
+            
+            <div class="logo-container">
+                <img src="lobster-logo.png" alt="Lobster" class="logo">
+            </div>
+            <div class="pub-info">
+                Pub na Zwycięskiej 14ccb<br>
+                23 krany: piwo, wino, kombucha
+            </div>
+            <h1>MENU</h1>
+            
+            <div class="decorative-line"></div>
+            
+            <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🍔</span>
+                <h2>KANAPKI & BURGERY</h2>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-content">
+                    <div class="menu-item-name">Kanapka ze Stekiem</div>
+                    <div class="menu-item-desc">Grillowany stek wołowy, rukola, pomidory, cebula karmelizowana, sos chimichurri</div>
+                </div>
+                <div class="price">45 ZŁ</div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-content">
+                    <div class="menu-item-name">Burger z Wędzonym Żeberkiem</div>
+                    <div class="menu-item-desc">Rozwłóknione żeberko BBQ, colesław, pikle, sos miodowo-musztardowy</div>
+                </div>
+                <div class="price">48 ZŁ</div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-content">
+                    <div class="menu-item-name">Kanapka ze Szarpaną Wieprzowiną</div>
+                    <div class="menu-item-desc">Pulled pork, kapusta kiszona, ser cheddar, sos BBQ, świeża kolendra</div>
+                </div>
+                <div class="price">42 ZŁ</div>
+            </div>
+        </div>
+        
+        <div class="decorative-line"></div>
+        
+        <div class="section vege">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>VEGE</h2>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-content">
+                    <div class="menu-item-name">Burger Beyond</div>
+                    <div class="menu-item-desc">Roślinny kotlet Beyond Meat, sałata, pomidor, czerwona cebula, wegański majonez</div>
+                </div>
+                <div class="price">39 ZŁ</div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-content">
+                    <div class="menu-item-name">Kanapka z Shiitake</div>
+                    <div class="menu-item-desc">Grillowane grzyby shiitake, hummus, szpinak, papryka pieczona, sos tahini</div>
+                </div>
+                <div class="price">36 ZŁ</div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-content">
+                    <div class="menu-item-name">Frytki</div>
+                    <div class="menu-item-desc">Chrupiące frytki z batata i ziemniaka, podawane z trzema sosami do wyboru</div>
+                </div>
+                <div class="price">18 ZŁ</div>
+            </div>
+        </div>
+        
+        <div class="decorative-line"></div>
+        
+        <div class="section drinks">
+            <div class="section-header">
+                <span class="section-icon">🥤</span>
+                <h2>NAPOJE</h2>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-content">
+                    <div class="menu-item-name">Kombucha Calamansi</div>
+                    <div class="menu-item-desc">Fermentowany napój probiotyczny o orzeźwiającym smaku cytrusowym</div>
+                </div>
+                <div class="price">16 ZŁ</div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-content">
+                    <div class="menu-item-name">Kombucha Mango</div>
+                    <div class="menu-item-desc">Naturalna kombucha z dodatkiem świeżego mango i imbiru</div>
+                </div>
+                <div class="price">16 ZŁ</div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-content">
+                    <div class="menu-item-name">Piwo Bezalkoholowe</div>
+                    <div class="menu-item-desc">Rzemieślnicze piwo 0% z lokalnego browaru</div>
+                </div>
+                <div class="price">14 ZŁ</div>
+            </div>
+        </div>
+        </div>
+        <img src="tower-sandwich.png" alt="Tower Sandwich" class="sandwich-image">
+    </div>
+</body>
+</html>
