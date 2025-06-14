@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lobster Menu - Print Version</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap');
+        
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+            width: 210mm;
+            height: 297mm;
+        }
+        
+        .menu-board {
+            background-color: #ffffff;
+            color: #2c2c2c;
+            padding: 15mm 20mm;
+            width: 210mm;
+            height: 297mm;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 8mm;
+            gap: 10mm;
+        }
+        
+        .logo-container {
+            flex-shrink: 0;
+        }
+        
+        .header-right {
+            flex: 1;
+            text-align: left;
+            margin-left: 10mm;
+        }
+        
+        .logo {
+            max-width: 50mm;
+            height: auto;
+        }
+        
+        h1 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 36pt;
+            text-align: left;
+            margin: 0 0 3mm 0;
+            color: #DAA520;
+            letter-spacing: 2px;
+        }
+        
+        .pub-info {
+            text-align: left;
+            margin: 0;
+        }
+        
+        .pub-address {
+            font-size: 12pt;
+            color: #2c2c2c;
+            font-weight: 600;
+            margin-bottom: 2mm;
+        }
+        
+        .pub-taps {
+            font-size: 10pt;
+            color: #DAA520;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-family: 'Bebas Neue', cursive;
+        }
+        
+        .decorative-line {
+            height: 1mm;
+            background: linear-gradient(to right, transparent, #ff6b6b, transparent);
+            margin: 5mm 0;
+        }
+        
+        .section {
+            margin-bottom: 8mm;
+            position: relative;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4mm;
+        }
+        
+        .section-icon {
+            font-size: 14pt;
+            margin-right: 3mm;
+        }
+        
+        h2 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 18pt;
+            color: #2c2c2c;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+        
+        .menu-item {
+            margin: 4mm 0;
+            padding-left: 10mm;
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+        
+        .menu-item-content {
+            flex: 1;
+        }
+        
+        .menu-item::before {
+            content: "▸";
+            position: absolute;
+            left: 3mm;
+            color: #ff6b6b;
+            font-size: 10pt;
+            top: 1mm;
+        }
+        
+        .menu-item-name {
+            font-size: 12pt;
+            font-weight: 700;
+            margin-bottom: 1mm;
+        }
+        
+        .menu-item-desc {
+            font-size: 9pt;
+            color: #666666;
+            line-height: 1.3;
+            font-weight: 400;
+        }
+        
+        .price {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 14pt;
+            color: #DAA520;
+            font-weight: 700;
+            margin-left: 5mm;
+            min-width: 20mm;
+            text-align: right;
+        }
+        
+        .corner-decoration {
+            position: absolute;
+            width: 20mm;
+            height: 20mm;
+            border: 1mm solid #ff6b6b;
+            opacity: 0.2;
+        }
+        
+        .corner-decoration.top-left {
+            top: 10mm;
+            left: 10mm;
+            border-right: none;
+            border-bottom: none;
+        }
+        
+        .corner-decoration.top-right {
+            top: 10mm;
+            right: 10mm;
+            border-left: none;
+            border-bottom: none;
+        }
+        
+        .corner-decoration.bottom-left {
+            bottom: 10mm;
+            left: 10mm;
+            border-right: none;
+            border-top: none;
+        }
+        
+        .corner-decoration.bottom-right {
+            bottom: 10mm;
+            right: 10mm;
+            border-left: none;
+            border-top: none;
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            
+            .menu-board {
+                box-shadow: none;
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-board">
+        <div class="corner-decoration top-left"></div>
+        <div class="corner-decoration top-right"></div>
+        <div class="corner-decoration bottom-left"></div>
+        <div class="corner-decoration bottom-right"></div>
+        
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="lobster-logo-print.png" alt="Lobster" class="logo">
+            </div>
+            <div class="header-right">
+                <h1>MENU</h1>
+                <div class="pub-info">
+                    <div class="pub-address">📍 Zwycięska 14ccb</div>
+                    <div class="pub-taps">🍺 23 KRANY • PIWO • WINO • KOMBUCHA</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="decorative-line"></div>
+        
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🍔</span>
+                <h2>KANAPKI & BURGERY</h2>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-content">
+                    <div class="menu-item-name">Kanapka ze Szarpaną Wieprzowiną</div>
+                    <div class="menu-item-desc">Chleb na zakwasie, majonez miso, szarpana wieprzowina, kiełki, szczypiorek, sezam</div>
+                </div>
+                <div class="price">42 ZŁ</div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-content">
+                    <div class="menu-item-name">Burger z Wędzonym Żeberkiem</div>
+                    <div class="menu-item-desc">Żeberko bez kości, sos BBQ, cheddar, sałata, czerwona kapusta</div>
+                </div>
+                <div class="price">48 ZŁ</div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-content">
+                    <div class="menu-item-name">Tost ze Stekiem</div>
+                    <div class="menu-item-desc">Stek 100g, majonez truflowy, chrust ziemniaczany, cebula, pikle</div>
+                </div>
+                <div class="price">45 ZŁ</div>
+            </div>
+        </div>
+        
+        <div class="decorative-line"></div>
+        
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>VEGE</h2>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-content">
+                    <div class="menu-item-name">Next Gen. Burger</div>
+                    <div class="menu-item-desc">Burger Beyond, sałata, musztarda BBQ, ketchup, pomidor, pikle, cebula grillowana</div>
+                </div>
+                <div class="price">39 ZŁ</div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-content">
+                    <div class="menu-item-name">Kanapka z Grzybami Shiitake</div>
+                    <div class="menu-item-desc">Grzyby shiitake smażone na maśle, cebula, cheddar, szczypiorek, majonez miso lub truflowy</div>
+                </div>
+                <div class="price">36 ZŁ</div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-content">
+                    <div class="menu-item-name">Frytki</div>
+                    <div class="menu-item-desc">200g frytek, sosy do wyboru: ketchup, BBQ, majonez miso, majonez truflowy</div>
+                </div>
+                <div class="price">18 ZŁ</div>
+            </div>
+        </div>
+        
+        <div class="decorative-line"></div>
+        
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🥤</span>
+                <h2>NAPOJE</h2>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-content">
+                    <div class="menu-item-name">Kombucha Calamansi</div>
+                    <div class="menu-item-desc">Na bazie zielonej herbaty i przecieru z pomarańczy calamansi. Bez cukru (&lt;1%) - nagroda Delicje 2025</div>
+                </div>
+                <div class="price">16 ZŁ</div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-content">
+                    <div class="menu-item-name">Kombucha Mango</div>
+                    <div class="menu-item-desc">Na bazie zielonej herbaty i calamansi</div>
+                </div>
+                <div class="price">16 ZŁ</div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-content">
+                    <div class="menu-item-name">Piwo Bezalkoholowe</div>
+                    <div class="menu-item-desc">Rzemieślnicze piwo 0% z lokalnego browaru</div>
+                </div>
+                <div class="price">14 ZŁ</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

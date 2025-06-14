@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kombucha Calamansi Label</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap');
+        
+        @page {
+            size: 30mm 120mm;
+            margin: 0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .label {
+            width: 30mm;
+            height: 120mm;
+            position: relative;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 100%;
+            width: auto;
+            opacity: 0.3;
+            filter: saturate(1.5) brightness(1.1);
+        }
+        
+        .content {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 5mm 3mm;
+            text-align: center;
+            color: #1a1a1a;
+        }
+        
+        .logo {
+            width: 20mm;
+            height: auto;
+            margin: 0 auto 3mm;
+            filter: brightness(0);
+        }
+        
+        .product-name {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 14pt;
+            line-height: 1;
+            margin-bottom: 3mm;
+            color: #2c2c2c;
+            letter-spacing: 0.5px;
+        }
+        
+        .flavor {
+            font-family: 'Playfair Display', serif;
+            font-size: 18pt;
+            font-weight: 700;
+            color: #DAA520;
+            margin-bottom: 2mm;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .divider {
+            width: 15mm;
+            height: 0.5mm;
+            background: linear-gradient(to right, transparent, #DAA520, transparent);
+            margin: 3mm auto;
+        }
+        
+        .zero-sugar {
+            background: #2c2c2c;
+            color: white;
+            padding: 2mm 4mm;
+            margin: 0 -3mm 3mm;
+            font-family: 'Inter', sans-serif;
+            font-size: 10pt;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .description {
+            font-family: 'Inter', sans-serif;
+            font-size: 7pt;
+            line-height: 1.3;
+            color: #666;
+            margin-bottom: 3mm;
+            flex: 1;
+        }
+        
+        .award {
+            background: #DAA520;
+            color: white;
+            padding: 1.5mm 3mm;
+            margin: 0 -3mm 3mm;
+            font-family: 'Inter', sans-serif;
+            font-size: 6pt;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .volume {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 10pt;
+            color: #666;
+            margin-top: auto;
+            padding-top: 2mm;
+        }
+        
+        .vertical-text {
+            position: absolute;
+            right: 1mm;
+            top: 50%;
+            transform: translateY(-50%) rotate(90deg);
+            font-family: 'Inter', sans-serif;
+            font-size: 5pt;
+            color: #999;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .label {
+                box-shadow: none;
+            }
+        }
+        
+        /* Preview helpers */
+        .preview-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        
+        .size-info {
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 10pt;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="preview-container">
+        <div style="position: relative;">
+            <div class="label">
+                <img src="calamansi-label.png" alt="Background" class="background-image">
+                
+                <div class="content">
+                    <img src="lobster-logo.png" alt="Lobster" class="logo">
+                    
+                    <div class="product-name">KOMBUCHA</div>
+                    <div class="flavor">Calamansi</div>
+                    
+                    <div class="divider"></div>
+                    
+                    <div class="zero-sugar">ZERO CUKRU</div>
+                    
+                    <div class="description">
+                        Fermentowany napój probiotyczny<br>
+                        na bazie zielonej herbaty<br>
+                        i przecieru z pomarańczy calamansi
+                    </div>
+                    
+                    <div class="award">
+                        ★ DELICJE 2025 ★<br>
+                        KATEGORIA FIT
+                    </div>
+                    
+                    <div class="volume">330 ML</div>
+                </div>
+                
+                <div class="vertical-text">Craft Kombucha</div>
+            </div>
+            <div class="size-info">3cm × 12cm</div>
+        </div>
+        
+        <!-- Duplicate for print preview -->
+        <div style="position: relative;">
+            <div class="label">
+                <img src="calamansi-label.png" alt="Background" class="background-image">
+                
+                <div class="content">
+                    <img src="lobster-logo.png" alt="Lobster" class="logo">
+                    
+                    <div class="product-name">KOMBUCHA</div>
+                    <div class="flavor">Calamansi</div>
+                    
+                    <div class="divider"></div>
+                    
+                    <div class="zero-sugar">ZERO CUKRU</div>
+                    
+                    <div class="description">
+                        Fermentowany napój probiotyczny<br>
+                        na bazie zielonej herbaty<br>
+                        i przecieru z pomarańczy calamansi
+                    </div>
+                    
+                    <div class="award">
+                        ★ DELICJE 2025 ★<br>
+                        KATEGORIA FIT
+                    </div>
+                    
+                    <div class="volume">330 ML</div>
+                </div>
+                
+                <div class="vertical-text">Craft Kombucha</div>
+            </div>
+            <div class="size-info">3cm × 12cm</div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lobster Menu - A4 Print</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap');
+        
+        @page {
+            size: A4;
+            margin: 10mm;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+            color: #2c2c2c;
+        }
+        
+        .menu-page {
+            width: 100%;
+            max-width: 190mm;
+            margin: 0 auto;
+            padding: 15mm;
+            background-color: #ffffff;
+        }
+        
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15mm;
+            border-bottom: 3px solid #DAA520;
+            padding-bottom: 10mm;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 10mm;
+        }
+        
+        .logo {
+            width: 40mm;
+            height: auto;
+            filter: brightness(0);
+        }
+        
+        .title-section {
+            text-align: center;
+            flex: 1;
+        }
+        
+        h1 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 48pt;
+            color: #DAA520;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+        
+        .pub-info {
+            font-size: 12pt;
+            color: #666;
+            margin-top: 5mm;
+            line-height: 1.5;
+        }
+        
+        .pub-address {
+            font-weight: 600;
+            color: #2c2c2c;
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10mm;
+        }
+        
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 8mm;
+        }
+        
+        .section {
+            background-color: #f8f8f8;
+            padding: 8mm;
+            border-radius: 5mm;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 6mm;
+            border-bottom: 2px solid #DAA520;
+            padding-bottom: 3mm;
+        }
+        
+        .section-icon {
+            font-size: 20pt;
+            margin-right: 5mm;
+        }
+        
+        h2 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 24pt;
+            color: #2c2c2c;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+        
+        .menu-item {
+            margin-bottom: 6mm;
+            padding: 4mm;
+            background-color: white;
+            border-radius: 3mm;
+            border: 1px solid #f0f0f0;
+        }
+        
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 2mm;
+        }
+        
+        .menu-item-name {
+            font-size: 12pt;
+            font-weight: 700;
+            color: #2c2c2c;
+            flex: 1;
+        }
+        
+        .price {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 16pt;
+            color: #DAA520;
+            font-weight: 700;
+            margin-left: 5mm;
+        }
+        
+        .price.unavailable {
+            color: #999;
+            font-size: 14pt;
+        }
+        
+        .menu-item-desc {
+            font-size: 9pt;
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        .footer {
+            margin-top: 10mm;
+            text-align: center;
+            font-size: 10pt;
+            color: #999;
+            border-top: 1px solid #e0e0e0;
+            padding-top: 5mm;
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            
+            .menu-page {
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-page">
+        <div class="header">
+            <div class="logo-section">
+                <img src="lobster-logo.png" alt="Lobster" class="logo">
+            </div>
+            <div class="title-section">
+                <h1>MENU</h1>
+                <div class="pub-info">
+                    <div class="pub-address">📍 Pub na Zwycięskiej 14ccb</div>
+                    <div>🍺 23 KRANY • PIWO • WINO • KOMBUCHA</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="column">
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🍔</span>
+                        <h2>KANAPKI & BURGERY</h2>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <div class="menu-item-name">Kanapka ze Szarpaną Wieprzowiną</div>
+                            <div class="price">32 ZŁ</div>
+                        </div>
+                        <div class="menu-item-desc">Chleb na zakwasie, majonez miso, szarpana wieprzowina, kiełki, szczypiorek, sezam</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <div class="menu-item-name">Burger z Wędzonym Żeberkiem</div>
+                            <div class="price">32 ZŁ</div>
+                        </div>
+                        <div class="menu-item-desc">Żeberko bez kości, sos BBQ, cheddar, sałata, czerwona kapusta</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <div class="menu-item-name">Tost ze Stekiem</div>
+                            <div class="price">32 ZŁ</div>
+                        </div>
+                        <div class="menu-item-desc">Stek 100g, majonez truflowy, chrust ziemniaczany, cebula, pikle</div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🌿</span>
+                        <h2>VEGE</h2>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <div class="menu-item-name">Next Gen. Burger</div>
+                            <div class="price">39 ZŁ</div>
+                        </div>
+                        <div class="menu-item-desc">Burger Beyond, sałata, musztarda BBQ, ketchup, pomidor, pikle, cebula grillowana</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <div class="menu-item-name">Kanapka z Grzybami Shiitake</div>
+                            <div class="price">32 ZŁ</div>
+                        </div>
+                        <div class="menu-item-desc">Grzyby shiitake smażone na maśle, cebula, cheddar, szczypiorek, majonez miso lub truflowy</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <div class="menu-item-name">Frytki</div>
+                            <div class="price">15 ZŁ</div>
+                        </div>
+                        <div class="menu-item-desc">200g frytek, sosy do wyboru: ketchup, BBQ, majonez miso, majonez truflowy</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="column">
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🥤</span>
+                        <h2>NAPOJE</h2>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <div class="menu-item-name">Kombucha Calamansi</div>
+                            <div class="price">16 ZŁ</div>
+                        </div>
+                        <div class="menu-item-desc">Na bazie zielonej herbaty i przecieru z pomarańczy calamansi. Bez cukru (&lt;1%) - nagroda Delicje 2025</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <div class="menu-item-name">Kombucha Mango</div>
+                            <div class="price unavailable">BRAK</div>
+                        </div>
+                        <div class="menu-item-desc">Na bazie zielonej herbaty i calamansi</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <div class="menu-item-name">Piwo Bezalkoholowe</div>
+                            <div class="price">15 ZŁ</div>
+                        </div>
+                        <div class="menu-item-desc">Rzemieślnicze piwo 0% z lokalnego browaru</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            Lobster Pub • www.lobster.pl • Smacznego!
+        </div>
+    </div>
+</body>
+</html>
